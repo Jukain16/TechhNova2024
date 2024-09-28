@@ -1,4 +1,4 @@
-// src/components/Results.js
+
 
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -43,7 +43,7 @@ function Results() {
       setDataCount(salaries.length);
     }
   }, [position, range, userLocation]);
-  
+
   const handleGoBack = () => {
     navigate('/');
   };
