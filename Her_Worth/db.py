@@ -1,13 +1,13 @@
 import sqlite3
 
 import click
-from flas import current_app, g
+from flask import current_app, g
 
 def get_db():
     if 'db' not in g:
         g.db = sqlite3.connect(
         current_app.config['DATABASE'],
-        detect_types=sqlite3PARSE_DECLTYPES
+        detect_types=sqlite3.PARSE_DECLTYPES
     )
     g.db.row_factory = sqlite3.Row
 
@@ -15,15 +15,15 @@ def get_db():
 
 def close_db(e=None):
     db=g.pop('db', None)
-    db.close()
 
 def init_db():  
     db = get_db()
     with current_app.open_resource('swe-salaries.sql') as f:
-            db.executesscript(f.read().decode('utf8'))
+            db.executescript(f.read().decode('utf8'))
 
 @click.command('init-db')
-init_db()
+def init_db_command():
+    init_db()
     click.echo('Initialized the database.')
 
 
