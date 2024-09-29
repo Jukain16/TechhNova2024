@@ -1,0 +1,5 @@
+.search-container {
+    border-radius: 48px;
+    background: linear-gradient(174deg, rgba(0, 0, 0, 0.30) 6.38%, rgba(0, 0, 0, 0.30) 62.72%, rgba(0, 0, 0, 0.00) 95.47%);
+    backdrop-filter: blur(8px);
+}
